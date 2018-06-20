@@ -14,6 +14,7 @@ import com.otaliastudios.cameraview.Facing;
 import com.otaliastudios.cameraview.Flash;
 import com.otaliastudios.cameraview.Gesture;
 import com.otaliastudios.cameraview.GestureAction;
+import com.otaliastudios.cameraview.SessionType;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -32,12 +33,14 @@ public class MainCameraActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
         cameraView = (CameraView)findViewById(R.id.camera);
+        cameraView.setSessionType(SessionType.PICTURE);
         cameraView.mapGesture(Gesture.PINCH, GestureAction.ZOOM); // Pinch to zoom!
         cameraView.mapGesture(Gesture.TAP, GestureAction.FOCUS_WITH_MARKER); // Tap to focus!
         cameraView.setFacing(Facing.BACK);
         isFrontFacing=false;
         cameraView.setFlash(Flash.OFF);
         isFlashOn=false;
+        cameraView.setPlaySounds(false);
         cameraView.addCameraListener(new CameraListener() {
             @Override
             public void onPictureTaken(byte[] jpeg) {
@@ -115,6 +118,11 @@ public class MainCameraActivity extends AppCompatActivity {
             isFrontFacing=true;
         }
 
+    }
+    @Override
+    protected void onDestroy() {
+        cameraView.destroy();
+        super.onDestroy();
     }
 }
 
