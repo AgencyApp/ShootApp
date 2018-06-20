@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "162799635067",
+    "firebase_url": "https://theshootapp.firebaseio.com",
+    "project_id": "theshootapp",
+    "storage_bucket": "theshootapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:162799635067:android:249bed96ead3d2bd",
+        "android_client_info": {
+          "package_name": "com.theshootapp.world"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "162799635067-dtp3el7lsjs6iogi5t3qsaujgqm6duou.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "162799635067-dtp3el7lsjs6iogi5t3qsaujgqm6duou.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqfTBo3ENRwc6uG-7PAR7SxjgZ_vapznM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
