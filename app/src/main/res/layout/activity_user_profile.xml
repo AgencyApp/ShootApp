@@ -8,51 +8,37 @@
 
     <ImageView
         android:id="@+id/UserProfileImage"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginEnd="92dp"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="95dp"
+        android:layout_height="83dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
+        android:onClick="onPicClick"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/common_full_open_on_phone" />
 
-    <Button
-        android:id="@+id/PicturePic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="85dp"
-        android:layout_marginTop="38dp"
-        android:onClick="onPicClick"
-        android:text="PicPicture"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/UserProfileImage" />
-
     <EditText
         android:id="@+id/UserProfileName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="136dp"
-        android:layout_marginStart="33dp"
-        android:layout_marginTop="38dp"
+        android:layout_width="211dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="82dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PicturePic" />
+        app:layout_constraintStart_toEndOf="@+id/UserProfileImage"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/UserProfileSave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="32dp"
         android:layout_marginEnd="148dp"
         android:layout_marginStart="148dp"
-        android:layout_marginTop="27dp"
         android:onClick="onSaveClick"
-        android:text="Save"
+        android:text="Proceed"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/UserProfileName" />
+        app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>

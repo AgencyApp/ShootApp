@@ -80,6 +80,11 @@ public class MainCameraActivity extends AppCompatActivity {
         startActivity(new Intent(this, MomentActivity.class));
     }
 
+    public void onVideoClick(View v)
+    {
+        startActivity(new Intent(this,VideoCameraActivity.class));
+    }
+
     public String writeToFile(byte[] array)
     {
         try
