@@ -1,4 +1,4 @@
-package com.theshootapp.world;
+package com.theshootapp.world.Activities;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -124,6 +124,11 @@ public class MainCameraActivity extends AppCompatActivity {
     protected void onDestroy() {
         cameraView.destroy();
         super.onDestroy();
+    }
+
+    public void onCamera2Video(View view)
+    {
+        startActivity(new Intent(this,VideoCameraActivity.class));
     }
 }
 

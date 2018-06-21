@@ -1,4 +1,4 @@
-package com.theshootapp.world;
+package com.theshootapp.world.Activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +13,7 @@ import com.otaliastudios.cameraview.Gesture;
 import com.otaliastudios.cameraview.GestureAction;
 import com.otaliastudios.cameraview.SessionType;
 import com.otaliastudios.cameraview.VideoQuality;
+import com.theshootapp.world.R;
 
 import java.io.File;
 import java.io.IOException;
@@ -38,7 +39,7 @@ public class VideoCameraActivity extends AppCompatActivity {
         isFlashOn=false;
         isVideoRecording=false;
         cameraView.setPlaySounds(false);//Check
-        cameraView.setVideoQuality(VideoQuality.MAX_720P);
+        cameraView.setVideoQuality(VideoQuality.MAX_480P);
         cameraView.setVideoMaxDuration(10000);
         videoFileName=getFilesDir() + File.separator + "tempVideo";
         cameraView.addCameraListener(new CameraListener() {

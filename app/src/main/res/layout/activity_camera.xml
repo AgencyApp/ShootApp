@@ -46,17 +46,28 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/CameraSwap"
+    android:id="@+id/CameraSwap"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="150dp"
+    android:layout_marginStart="200dp"
+    android:layout_marginTop="16dp"
+    android:text="Swap"
+    android:onClick="onCameraSwap"
+    app:layout_constraintEnd_toStartOf="parent"
+    app:layout_constraintStart_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:id="@+id/Camera2Video"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="150dp"
-        android:layout_marginStart="200dp"
+        android:layout_marginEnd="250dp"
+        android:layout_marginStart="120dp"
         android:layout_marginTop="16dp"
-        android:text="Swap"
-        android:onClick="onCameraSwap"
+        android:text="Video"
+        android:onClick="onCamera2Video"
         app:layout_constraintEnd_toStartOf="parent"
         app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
 </android.support.constraint.ConstraintLayout>
