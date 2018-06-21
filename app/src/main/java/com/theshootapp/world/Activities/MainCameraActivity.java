@@ -1,6 +1,8 @@
 package com.theshootapp.world.Activities;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,12 +14,15 @@ import com.otaliastudios.cameraview.Facing;
 import com.otaliastudios.cameraview.Flash;
 import com.otaliastudios.cameraview.Gesture;
 import com.otaliastudios.cameraview.GestureAction;
+import com.otaliastudios.cameraview.SessionType;
 import com.theshootapp.world.R;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
+import static java.security.AccessController.getContext;
 
 public class MainCameraActivity extends AppCompatActivity {
     CameraView cameraView;
@@ -30,12 +35,14 @@ public class MainCameraActivity extends AppCompatActivity {
         setContentView(R.layout.activity_camera);
         getSupportActionBar().hide();
         cameraView = (CameraView)findViewById(R.id.camera);
+        cameraView.setSessionType(SessionType.PICTURE);
         cameraView.mapGesture(Gesture.PINCH, GestureAction.ZOOM); // Pinch to zoom!
         cameraView.mapGesture(Gesture.TAP, GestureAction.FOCUS_WITH_MARKER); // Tap to focus!
         cameraView.setFacing(Facing.BACK);
         isFrontFacing=false;
         cameraView.setFlash(Flash.OFF);
         isFlashOn=false;
+        cameraView.setPlaySounds(false);
         cameraView.addCameraListener(new CameraListener() {
             @Override
             public void onPictureTaken(byte[] jpeg) {
@@ -118,6 +125,16 @@ public class MainCameraActivity extends AppCompatActivity {
             isFrontFacing=true;
         }
 
+    }
+    @Override
+    protected void onDestroy() {
+        cameraView.destroy();
+        super.onDestroy();
+    }
+
+    public void onCamera2Video(View view)
+    {
+        startActivity(new Intent(this,VideoCameraActivity.class));
     }
 }
 
