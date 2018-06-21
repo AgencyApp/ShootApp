@@ -15,6 +15,7 @@ import com.otaliastudios.cameraview.Flash;
 import com.otaliastudios.cameraview.Gesture;
 import com.otaliastudios.cameraview.GestureAction;
 import com.otaliastudios.cameraview.SessionType;
+import com.theshootapp.world.R;
 
 import java.io.File;
 import java.io.FileNotFoundException;

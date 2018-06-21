@@ -1,4 +1,4 @@
-package com.theshootapp.world;
+package com.theshootapp.world.Activities;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 
 import com.otaliastudios.cameraview.CameraUtils;
+import com.theshootapp.world.R;
 
 import java.io.File;
 import java.io.FileInputStream;

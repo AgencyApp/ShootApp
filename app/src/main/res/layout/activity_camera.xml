@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.theshootapp.world.MainCameraActivity">
+    tools:context="com.theshootapp.world.Activities.MainCameraActivity">
 
     <com.otaliastudios.cameraview.CameraView
         android:id="@+id/camera"
