@@ -28,6 +28,7 @@ public class MainCameraActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
+        getSupportActionBar().hide();
         cameraView = (CameraView)findViewById(R.id.camera);
         cameraView.mapGesture(Gesture.PINCH, GestureAction.ZOOM); // Pinch to zoom!
         cameraView.mapGesture(Gesture.TAP, GestureAction.FOCUS_WITH_MARKER); // Tap to focus!
@@ -65,6 +66,11 @@ public class MainCameraActivity extends AppCompatActivity {
         Intent intent = new Intent(this, PictureDisplay.class);
         intent.putExtra("image",filename);
         startActivity(intent);
+    }
+
+    public void onMomentClick(View v)
+    {
+        startActivity(new Intent(this, MomentActivity.class));
     }
 
     public String writeToFile(byte[] array)
