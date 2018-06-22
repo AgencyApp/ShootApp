@@ -1,8 +1,10 @@
 package com.theshootapp.world.Activities;
 
+import android.app.IntentService;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.location.Location;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,12 +17,17 @@ import com.otaliastudios.cameraview.Flash;
 import com.otaliastudios.cameraview.Gesture;
 import com.otaliastudios.cameraview.GestureAction;
 import com.otaliastudios.cameraview.SessionType;
+import com.theshootapp.world.ModelClasses.LocationModel;
 import com.theshootapp.world.R;
+import com.theshootapp.world.Services.UserLocation;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
+import io.nlopez.smartlocation.OnLocationUpdatedListener;
+import io.nlopez.smartlocation.SmartLocation;
 
 import static java.security.AccessController.getContext;
 
@@ -28,12 +35,15 @@ public class MainCameraActivity extends AppCompatActivity {
     CameraView cameraView;
     private boolean isFlashOn;
     private boolean isFrontFacing;
+    UserLocation userLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
         getSupportActionBar().hide();
+        Intent serviceIntent=new Intent(this,UserLocation.class);
+        startService(serviceIntent);
         cameraView = (CameraView)findViewById(R.id.camera);
         cameraView.setSessionType(SessionType.PICTURE);
         cameraView.mapGesture(Gesture.PINCH, GestureAction.ZOOM); // Pinch to zoom!
@@ -50,6 +60,8 @@ public class MainCameraActivity extends AppCompatActivity {
                 super.onPictureTaken(jpeg);
             }
         });
+
+
     }
 
     @Override
@@ -141,5 +153,6 @@ public class MainCameraActivity extends AppCompatActivity {
     {
         startActivity(new Intent(this,VideoCameraActivity.class));
     }
+
 }
 

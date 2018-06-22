@@ -1,4 +1,4 @@
-package ModelClasses;
+package com.theshootapp.world.ModelClasses;
 
 /**
  * Created by hamza on 21-Jun-18.

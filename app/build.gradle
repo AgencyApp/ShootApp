@@ -48,6 +48,8 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.firebaseui:firebase-ui-auth:4.0.1'
     implementation 'com.github.jrvansuita:PickImage:+'
+    compile 'io.nlopez.smartlocation:library:3.3.3'
+    compile 'io.nlopez.smartlocation:rx:3.3.3'
 
 
 }

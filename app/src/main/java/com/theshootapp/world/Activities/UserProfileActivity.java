@@ -27,7 +27,7 @@ import com.vansuita.pickimage.listeners.IPickResult;
 
 import java.io.ByteArrayOutputStream;
 
-import ModelClasses.UserProfile;
+import com.theshootapp.world.ModelClasses.UserProfile;
 
 public class UserProfileActivity extends AppCompatActivity implements IPickResult {
 

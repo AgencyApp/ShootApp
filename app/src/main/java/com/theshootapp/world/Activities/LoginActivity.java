@@ -16,7 +16,7 @@ import com.theshootapp.world.R;
 
 import java.util.Arrays;
 
-import ModelClasses.UserProfile;
+import com.theshootapp.world.ModelClasses.UserProfile;
 
 public class LoginActivity extends AppCompatActivity {
 
