@@ -24,6 +24,7 @@ import com.otaliastudios.cameraview.CameraUtils;
 import com.theshootapp.world.ModelClasses.Moment;
 import com.theshootapp.world.R;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -34,6 +35,7 @@ public class PictureDisplay extends AppCompatActivity {
     double longitude;
     double latitude;
     String path;
+    Bitmap img;
     StorageReference storageReference;
 
     @Override
@@ -67,21 +69,28 @@ public class PictureDisplay extends AppCompatActivity {
                 @Override
                 public void onBitmapReady(Bitmap bitmap) {
                     myImage.setImageBitmap(bitmap);
+                    img=bitmap;
                 }
             });
 
 
         }
     }
-    void onShootClick(View view)
+    public void onShootClick(View view)
     {
         Long ts = System.currentTimeMillis() / 1000;
         final Moment moment=new Moment(FirebaseAuth.getInstance().getUid(),longitude,latitude,ts);
         final DatabaseReference momentRef=FirebaseDatabase.getInstance().getReference().child("Moments").push();
         String key=momentRef.getKey();
-        Uri file = Uri.fromFile(new File(path));
         StorageReference momentStorageRef = storageReference.child("Moments/"+key+".jpeg");
+       /* Bitmap bitmap = Bitmap.createScaledBitmap(img,1280,720,true );
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        byte[] data = baos.toByteArray();
+        UploadTask uploadTask = momentStorageRef.putBytes(data);*/
+        Uri file = Uri.fromFile(new File(path));
        UploadTask uploadTask = momentStorageRef.putFile(file);
+
         //TODO progress Bar for uploading
 // Register observers to listen for when the download is done or if it fails
         uploadTask.addOnFailureListener(new OnFailureListener() {
@@ -95,10 +104,10 @@ public class PictureDisplay extends AppCompatActivity {
                 // taskSnapshot.getMetadata() contains file metadata such as size, content-type, etc.
                 // ...
                 momentRef.setValue(moment);
-                finish();
+
             }
         });
-
+        finish();
     }
 
 }
